@@ -1,0 +1,155 @@
+body{
+    background-color: #BA4949;
+    font-family :ArialRounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+#root{
+    width: 35%;
+    height: 800px;
+    margin: auto;
+    color: white;
+    min-width: 600px;
+    margin-top: -10px;
+    text-align: center;
+}
+.navbar{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.left-side{
+    display: flex;
+    justify-content: space-around;
+}
+.right-side{
+    display: flex;
+    justify-content: flex-end;
+}
+.button-div{
+  background-color: #C86D6D;
+  border: none;
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button_text{
+    display: inline-block;
+    margin: auto 0;
+    font-size: 13px;
+    margin-left: 4px;
+}
+.btn_icn_txt{
+    margin-top: -5px;
+}
+#top-img{
+    font-size: 24px;
+    margin: auto 0;
+}
+
+#pomofocus{
+    display: inline-block;
+    font-size:20px;
+    width: 70%;
+    font-weight: bold;
+    line-height: 28px;
+}
+hr{
+    border: 0;
+    height: 0;
+    border-bottom: 1px solid lightgray;
+}
+.Timer{
+    width: 70%;
+    margin: auto;
+    background-color: #C15C5C;
+    margin-top: 50px;
+    border-radius: 6px;
+    padding: 30px 20px;
+    transition: background-color 0.4s ease-in-out 0s;
+}
+.Timer_btn{
+    cursor: pointer;
+    margin-left: 5px;
+    background-color: #C15C5C;
+    border: none;
+    color: white;
+    font-size: 15px;
+    
+}
+.Time{
+    margin-top: 0;
+    font-size: 120px;
+    margin-bottom: 10px;
+}
+#Start_btn{
+    cursor: pointer;
+    width: 40%;
+    font-size: 22px;
+    padding: 20px 0;
+    color:  #A44E4E;
+    font-weight: 700;
+    box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+    border: none;
+    border-radius: 4px;
+}
+#Start_btn:active {
+    transform: translateY(4px);
+    box-shadow: none;
+  }
+.signed_text{
+    font-weight: bold;
+}
+.Bottom_paragraph{
+    margin: auto;
+    text-align: center;
+}
+.count{
+  margin: 30px auto -16px;
+  color: lightgray;
+}
+.Tasks{
+    text-align: left;
+    margin-left: 84px;
+}
+#task_button{
+    width: 11%;
+    margin-left: 6px;
+    background-color: transparent;
+    border-color: white;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 10px;
+    color: white;
+    
+}
+#task_button:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+#input_text{
+    width: 62%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid lightgray;
+    color: white;
+    
+}
+input[type="text"]{ 
+    outline: none;
+}
+input::placeholder{
+    color:lightgray;
+    font-style: italic;
+    }
+.Unordered_list{
+    width: 80%;
+    margin-left: 70px;
+}
+.list_item{
+    text-align: left;
+}
