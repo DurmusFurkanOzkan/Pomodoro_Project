@@ -1,3 +1,3 @@
 # Pomodoro Project
 
-![Pomodoro Project](https://github.com/DurmusFurkanOzkan/PomodoroProjectGif.gif/blob/main/CroppedGif.gif)
+![Pomodoro Project](https://github.com/DurmusFurkanOzkan/Pomodoro_Project/blob/main/PomodoroProjectGif.gif)
