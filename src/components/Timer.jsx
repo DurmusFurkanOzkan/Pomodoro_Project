@@ -5,10 +5,12 @@ function Timer() {
     const [minutes, setMinutes] = useState(25);
     const [buttonText, setbuttonText] = useState("START");
 
+    const [isVisible,setIsVisible]=useState("hidden");
+    
     const [TimeText, setTimeText] = useState("Time to focus!");
-    const [buttonColorPom, setbuttonColorPom] = useState({ color: "#A44E4E", font: "bold" });
-    const [buttonColorSho, setbuttonColorSho] = useState({ color: "#C15C5C", font: "normal" });
-    const [buttonColorLon, setbuttonColorLon] = useState({ color: "#C15C5C", font: "normal" });
+    const [buttonColorPom, setbuttonColorPom] = useState({ color: "#A44E4E", font: "bold" ,tag:"signed"});
+    const [buttonColorSho, setbuttonColorSho] = useState({ color: "#C15C5C", font: "normal" ,tag:"unsigned" });
+    const [buttonColorLon, setbuttonColorLon] = useState({ color: "#C15C5C", font: "normal" ,tag:"unsigned" });
 
     const [btnColor, setBtnColor] = useState("#A44E4E");
 
@@ -26,19 +28,19 @@ function Timer() {
         document.body.style.backgroundColor = body;
         setBtnColor(body);
         if (title === "Pomodoro") {
-            setbuttonColorPom({ color: signedcolor, font: "bold" });
-            setbuttonColorSho({ color: colors, font: "normal" });
-            setbuttonColorLon({ color: colors, font: "normal" });
+            setbuttonColorPom({ color: signedcolor, font: "bold" ,tag:"signed"});
+            setbuttonColorSho({ color: colors, font: "normal",tag:"unsigned" });
+            setbuttonColorLon({ color: colors, font: "normal" ,tag:"unsigned"});
             setTimeText("Time to focus!")
         } else if (title === "Short Break") {
-            setbuttonColorPom({ color: colors, font: "normal" });
-            setbuttonColorSho({ color: signedcolor, font: "bold" });
-            setbuttonColorLon({ color: colors, font: "normal" });
+            setbuttonColorPom({ color: colors, font: "normal" ,tag:"unsigned"});
+            setbuttonColorSho({ color: signedcolor, font: "bold" ,tag:"signed"});
+            setbuttonColorLon({ color: colors, font: "normal" ,tag:"unsigned"});
             setTimeText("Time for a break!")
         } else if (title === "Long Break") {
-            setbuttonColorPom({ color: colors, font: "normal" });
-            setbuttonColorSho({ color: colors, font: "normal" });
-            setbuttonColorLon({ color: signedcolor, font: "bold" });
+            setbuttonColorPom({ color: colors, font: "normal",tag:"unsigned" });
+            setbuttonColorSho({ color: colors, font: "normal" ,tag:"unsigned"});
+            setbuttonColorLon({ color: signedcolor, font: "bold" ,tag:"signed"});
             setTimeText("Time for a break!")
         }
 
@@ -64,6 +66,7 @@ function Timer() {
         if(flag2==true){
             ChangeState(event.target.innerText);
             setbuttonText("START");
+            setIsVisible("hidden");
             setFlag(true);
         }else{
             if (window.confirm("Are you sure to change the time?")) {
@@ -81,10 +84,12 @@ function Timer() {
 
         if (buttonText == "START") {
             setbuttonText("RESTART");
+            setIsVisible("visible");
             setFlag(false);
         } else if(buttonText == "RESTART") {
             if (window.confirm("Are you sure to restart the time?")) {
                 setbuttonText("START");
+                setIsVisible("hidden");
                 setFlag(true);
               } 
         }
@@ -93,6 +98,27 @@ function Timer() {
 
     }
 
+
+    function PauseClicked(){
+
+        if (window.confirm("Are you sure to change the time?")) {
+            if (buttonColorPom.tag == "signed") {
+                changeColor("button-div", "#4C9196", "#417B80", "Short Break", "#38858A");
+                setMinutes(5);
+    
+            } else if (buttonColorSho.tag == "signed") {
+                changeColor("button-div", "#4D7FA2", "#426C8A", "Long Break", "#397097");
+                setMinutes(15);
+            } else if (buttonColorLon.tag == "signed") {
+                changeColor("button-div", "#C15C5C", "#A44E4E", "Pomodoro", "#BA4949");
+                setMinutes(25);
+            }
+            setbuttonText("START");
+            setFlag2(true);
+            setFlag(true);
+        }
+        
+    }
     // Random component
     const Completionist = () => <h1 className="Time">TIME IS FINISHED</h1>;
 
@@ -120,8 +146,13 @@ function Timer() {
                 <button className="Timer_btn" onClick={myFunction} style={{ backgroundColor: buttonColorLon.color, fontWeight: buttonColorLon.font }}>Long Break</button>
             </div>
             <h1 className="Time">{flag ? minutes + ":00" : <Countdown date={Date.now() + (minutes * 60 * 1000) - 1000} renderer={renderer} />}</h1>
-
-            <button id="Start_btn" style={{ color: btnColor }} onClick={Countdowns}  >{buttonText}</button>
+            <div class="buttons"><button id="Start_btn" style={{ color: btnColor }} onClick={Countdowns}  >{buttonText}</button>
+            <button class="pause_button" onClick={PauseClicked} >
+                    <img class="pause_image" style={{visibility: isVisible}} src="https://pomofocus.io/icons/next-white3.png" alt="" />
+            </button>
+            </div>
+            
+           
         </div>
         <div className="Bottom_paragraph">
             <p className="count">#{count}</p>
